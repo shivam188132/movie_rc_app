@@ -10,7 +10,7 @@ st.title('Movie Recommender System')
 # print(titles)
 
 selected_movie_name = st.selectbox(
-    "How would you like to be connected? ", movies['title'].values)
+    "Hey, I am shivam i will suggest you 3 movies using my M.L. algorithms 😄 ", movies['title'].values)
 
 def movie_poster(id):
     response = requests.get(url=f"https://api.themoviedb.org/3/movie/{id}?api_key=8a5a4bb0bf23e25aaeb0c8b917338db6").json()
@@ -37,7 +37,7 @@ def recommend(movie):
 
 if st.button('Recommended'):
     names, posters = recommend(selected_movie_name)
-    col1, col2, col3 = st.columns(3)
+    col1, col2, col3, col4, col5 = st.columns(5)
     with col1:
         st.text(names[0])
         st.image(posters[0])
@@ -48,9 +48,9 @@ if st.button('Recommended'):
     with col3:
         st.text(names[2])
         st.image(posters[2])
-    # with col4:
-    #     st.text(names[3])
-    #     st.image(posters[3])
-    # with col5:
-    #     st.text(names[4])
-    #     st.image(posters[4])
+    with col4:
+        st.text(names[3])
+        st.image(posters[3])
+    with col5:
+        st.text(names[4])
+        st.image(posters[4])
