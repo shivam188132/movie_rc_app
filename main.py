@@ -40,7 +40,7 @@ if st.button('Recommended'):
     col1, col2, col3, col4, col5 = st.columns(5)
     with col1:
         st.text(names[0])
-        st.image("https://static.streamlit.io/examples/cat.jpg")
+        st.image(posters[0])
     with col2:
         st.text(names[1])
         st.image(posters[1])
