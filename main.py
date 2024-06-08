@@ -1,3 +1,4 @@
+
 import pickle
 import streamlit as st
 import requests
@@ -7,11 +8,14 @@ movies = pickle.load(open('movies.pkl', 'rb'))
 similarity = pickle.load(open('similarity.pkl', 'rb'))
 
 st.title('Movie Recommender System')
-# print(titles)
 
+st.header('Pick :red[1] in :blue[5000] :sunglasses:', divider='rainbow')
 selected_movie_name = st.selectbox(
-    "Hey, I am shivam i will suggest you 5 movies using my M.L. algorithms 😄 ", movies['title'].values)
-
+    ":green[my...M.L. algorithms] 🤖 ", movies['title'].values)
+st.markdown('''
+    :green[will suggest you best]
+    :blue[5] :rainbow[of similar] :green[kind :)]''')
+# st.audio("cat-purr.mp3", format="audio/mpeg", loop=True)
 def movie_poster(id):
     response = requests.get(url=f"https://api.themoviedb.org/3/movie/{id}?api_key=8a5a4bb0bf23e25aaeb0c8b917338db6").json()
     full_url ="https://image.tmdb.org/t/p/w500/"+ str(response['poster_path'])
@@ -40,7 +44,7 @@ if st.button('Recommended'):
     col1, col2, col3, col4, col5 = st.columns(5)
     with col1:
         st.text(names[0])
-        st.image("https://static.streamlit.io/examples/cat.jpg")
+        st.image(posters[0])
     with col2:
         st.text(names[1])
         st.image(posters[1])
